@@ -1,0 +1,27 @@
+<div class="form-container container">
+  <!-- <h3>Puppy Form</h3> -->
+  <form (ngSubmit)="changeFilter(form)" #form="ngForm">
+    <h4>Filter Options</h4>
+    <label>Breed</label>
+    <input type="radio" name="selection" checked (click)="changeSelection('breed')">
+    <label>Size</label>
+    <input type="radio" name="selection" (click)="changeSelection('size')">
+
+    <div [hidden]="selected !== 'breed'" class="form-group">
+      <label for="breed">Breed</label>
+      <select type="text" ngModel name="breed" class="form-control" id="breed" #breed="ngModel">
+        <!-- <option></option> -->
+        <option *ngFor="let dog of puppies" [value]="dog.breed">{{dog.breed}}</option>
+      </select>
+    </div>
+    <div [hidden]="selected !== 'size'" class="form-group">
+      <label for="size">Size</label>
+      <select type="text" ngModel name="size" class="form-control" id="size" #size="ngModel">
+        <!-- <option value=""></option> -->
+        <option *ngFor="let dog of puppies" [value]="dog.size">{{dog.size}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="button" class="btn btn-default" (click)="reset()">Reset</button>
+  </form>
+</div>

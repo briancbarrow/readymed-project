@@ -1,5 +1,6 @@
 <layout-header></layout-header>
-<h3>Puppies</h3>
+<h2 class="section-header">Puppies</h2>
+<filter-form [puppies]="puppies" (onReset)="resetData($event)" (onSelectionChanged)="setSelection($event)" (onFilterChange)="setFilter($event)" [selected]="selected"></filter-form>
 <div class="puppy-container">
   <div *ngFor="let puppy of puppies">
     <puppy [data]="puppy"></puppy>

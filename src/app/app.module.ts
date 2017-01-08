@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { PuppiesComponent } from './components/puppies/puppies.component';
 import { PuppyComponent } from './components/puppy/puppy.component';
 import { HomeComponent } from './components/home/home.component';
+import { FilterFormComponent } from './components/form/form.component';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([
   {
@@ -29,7 +30,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     HeaderComponent,
     PuppiesComponent,
     HomeComponent,
-    PuppyComponent
+    PuppyComponent,
+    FilterFormComponent
   ],
   imports: [
     BrowserModule,
