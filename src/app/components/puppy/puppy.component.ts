@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'puppies',
-  templateUrl: './puppies.component.html',
-  styleUrls: ['./puppies.component.css']
+  selector: 'puppy',
+  templateUrl: './puppy.component.html',
+  styleUrls: ['./puppy.component.css']
 })
 
-export class PuppiesComponent {
+export class PuppyComponent {
   constructor() {}
-
+  @Input() data: Object;
 
 }

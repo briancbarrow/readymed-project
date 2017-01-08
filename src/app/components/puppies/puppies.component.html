@@ -1,2 +1,7 @@
 <layout-header></layout-header>
 <h3>Puppies</h3>
+<div class="puppy-container">
+  <div *ngFor="let puppy of puppies">
+    <puppy [data]="puppy"></puppy>
+  </div>
+</div>

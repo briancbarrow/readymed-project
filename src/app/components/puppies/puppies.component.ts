@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PuppiesService } from '../../shared/puppies.service'
+
 
 @Component({
   selector: 'puppies',
@@ -7,7 +9,10 @@ import { Component } from '@angular/core';
 })
 
 export class PuppiesComponent {
-  constructor() {}
+  constructor(
+    private puppiesService: PuppiesService
+  ) {}
 
+  puppies: Object = this.puppiesService.puppies;
 
 }
