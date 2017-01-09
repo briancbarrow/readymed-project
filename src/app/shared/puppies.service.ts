@@ -6,12 +6,14 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PuppiesService {
-  constructor () {}
+  constructor (private http: Http) {}
 
-  // getUser() {
-  //   return this.http.get(`https://conduit.productionready.io/api/profiles/eric`)
-  //   .map((res:Response) => res.json());
-  // }
+  postPuppy(data) {
+    console.log(data);
+    return this.http.post('https://readymed-server.herokuapp.com/post', data)
+    .map((res:Response) => res.json())
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
   puppies = [
     {
       name: "Rex",

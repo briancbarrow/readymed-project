@@ -1,0 +1,7 @@
+form > * {
+  display: block;
+}
+
+button {
+  display: inline-block;
+}

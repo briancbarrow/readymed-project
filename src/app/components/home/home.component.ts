@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PuppiesService } from '../../shared/puppies.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'home-div',
@@ -7,7 +9,17 @@ import { Component } from '@angular/core';
 })
 
 export class HomeComponent {
-  constructor() {}
+  constructor(private puppiesService: PuppiesService) {}
 
+  createPuppy(newPuppy: NgForm) {
+    console.log(newPuppy.form.value)
+    this.puppiesService.postPuppy({
+      name: newPuppy.form.value.name,
+      size: newPuppy.form.value.size,
+      location: newPuppy.form.value.location,
+      breed: newPuppy.form.value.breed,
+      image: "http://loremflickr.com/200/200/dog"
+    })
+  }
 
 }

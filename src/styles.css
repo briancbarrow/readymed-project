@@ -10,3 +10,9 @@ body {
 .main-section {
   text-align: center;
 }
+
+.form-container {
+  max-width: 250px;
+  margin: auto;
+  text-align: left;
+}

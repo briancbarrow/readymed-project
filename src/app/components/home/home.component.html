@@ -5,3 +5,19 @@
 <div class="main-section jumbotron">
   <p>I wanted to show different routes. Not sure if this currenlty counts as having Parent and Child Routes</p>
 </div>
+<div class="form-container container">
+  <form (ngSubmit)="createPuppy(form)" #form="ngForm">
+    <label>Name</label>
+    <input type="text" name="name" ngModel placeholder="Name of Dog" required #name="ngModel">
+    <label>Size</label>
+    <input type="text" name="size" ngModel placeholder="Only S, M, L, XL" required #size="ngModel">
+    <label>Location</label>
+    <input type="text" name="location" ngModel placeholder="Eg. Murray" required #location="ngModel">
+    <label>Breed</label>
+    <input type="text" name="breed" ngModel placeholder="Eg. Hound, Beagle etc." required #breed="ngModel">
+    <!-- <label>Image (Chosen by default)</label>
+    <input type="text" name="image"  value="http://loremflickr.com/200/200/dog" required disabled="disabled"> -->
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
