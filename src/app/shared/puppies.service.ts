@@ -11,39 +11,43 @@ export class PuppiesService {
   postPuppy(data) {
     console.log(data);
     return this.http.post('https://readymed-server.herokuapp.com/post', data)
-    .map((res:Response) => res.json())
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
-  puppies = [
-    {
-      name: "Rex",
-      size: "M",
-      location: "Salt Lake",
-      breed: "Terrier",
-      image: "http://loremflickr.com/200/200/dog"
-    },
-    {
-      name: "Ty",
-      size: "L",
-      location: "Provo",
-      breed: "Schnauzer",
-      image: "http://loremflickr.com/200/200/dog"
-    },
-    {
-      name: "Jack",
-      size: "S",
-      location: "Murray",
-      breed: "Hound",
-      image: "http://loremflickr.com/200/200/dog"
-    },
-    {
-      name: "Russell",
-      size: "M",
-      location: "Midvale",
-      breed: "Hound",
-      image: "http://loremflickr.com/200/200/dog"
-    }
-  ]
+
+  getPuppies() {
+    return this.http.get('https://readymed-server.herokuapp.com/puppies')
+    .map((res:Response) => this.puppies = res.json())
+
+  }
+  puppies = []
+  // {
+  //   name: "Rex",
+  //   size: "M",
+  //   location: "Salt Lake",
+  //   breed: "Terrier",
+  //   image: "http://loremflickr.com/200/200/dog"
+  // },
+  // {
+  //   name: "Ty",
+  //   size: "L",
+  //   location: "Provo",
+  //   breed: "Schnauzer",
+  //   image: "http://loremflickr.com/200/200/dog"
+  // },
+  // {
+  //   name: "Jack",
+  //   size: "S",
+  //   location: "Murray",
+  //   breed: "Hound",
+  //   image: "http://loremflickr.com/200/200/dog"
+  // },
+  // {
+  //   name: "Russell",
+  //   size: "M",
+  //   location: "Midvale",
+  //   breed: "Hound",
+  //   image: "http://loremflickr.com/200/200/dog"
+  // }
   // private currentUserSubject = new BehaviorSubject<string>('Erin');
   // public currentUser = this.currentUserSubject.asObservable();
 

@@ -13,6 +13,7 @@ export class HomeComponent {
 
   createPuppy(newPuppy: NgForm) {
     console.log(newPuppy.form.value)
+    // this.puppiesService.getPuppies().subscribe(data => console.log(data))
     this.puppiesService.postPuppy({
       name: newPuppy.form.value.name,
       size: newPuppy.form.value.size,

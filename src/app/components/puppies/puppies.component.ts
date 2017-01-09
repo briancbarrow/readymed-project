@@ -12,18 +12,26 @@ export class PuppiesComponent {
     private puppiesService: PuppiesService
   ) {}
 
+  ngOnInit() {
+    this.puppiesService.getPuppies().subscribe(data => {
+      this.originalPuppies = data
+      this.puppies = data
+    });
 
+  }
 
-  puppies: Array<Object> = this.puppiesService.puppies;
+//this.puppiesService.getPuppies().subscribe(data => console.log(data))
+  private originalPuppies: Array<Object> = [];
+  puppies: Array<Object> = []
   selected: string = "breed";
   public options: Array<Object> = [{value: "Breed"}, {value: "Size"}];
   public filter: string = "Terrier";
 
   setPuppies(selected, filter) {
     this.puppies = [];
-    for(var i = 0; i < this.puppiesService.puppies.length; i++) {
-      if(this.puppiesService.puppies[i][selected] === filter) {
-        this.puppies.push(this.puppiesService.puppies[i]);
+    for(var i = 0; i < this.originalPuppies.length; i++) {
+      if(this.originalPuppies[i][selected] === filter) {
+        this.puppies.push(this.originalPuppies[i]);
       }
     }
     console.log(this.puppies)
@@ -31,6 +39,7 @@ export class PuppiesComponent {
   }
 
   setFilter(newFilter) {
+    console.log(newFilter)
     this.filter = newFilter;
     this.setPuppies(this.selected, newFilter)
   }
@@ -41,7 +50,7 @@ export class PuppiesComponent {
   }
 
   resetData() {
-    this.puppies = this.puppiesService.puppies;
+    this.puppies = this.originalPuppies;
   }
 
 }
