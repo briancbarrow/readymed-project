@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 import { PuppiesService } from './shared/puppies.service'
+import { FilterPipe } from './shared/filter.pipe'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -31,7 +32,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
     PuppiesComponent,
     HomeComponent,
     PuppyComponent,
-    FilterFormComponent
+    FilterFormComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,7 @@ export class HomeComponent {
       location: newPuppy.form.value.location,
       breed: newPuppy.form.value.breed,
       image: "http://loremflickr.com/200/200/dog"
-    })
+    }).subscribe()
   }
 
 }

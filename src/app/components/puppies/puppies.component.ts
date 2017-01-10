@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { PuppiesService } from '../../shared/puppies.service'
+import { FilterPipe } from '../../shared/filter.pipe'
 
 @Component({
   selector: 'puppies',
   templateUrl: './puppies.component.html',
-  styleUrls: ['./puppies.component.css']
+  styleUrls: ['./puppies.component.css'],
+
 })
 
 export class PuppiesComponent {
@@ -14,34 +16,33 @@ export class PuppiesComponent {
 
   ngOnInit() {
     this.puppiesService.getPuppies().subscribe(data => {
-      this.originalPuppies = data
+      // this.originalPuppies = data
       this.puppies = data
     });
-
   }
 
 //this.puppiesService.getPuppies().subscribe(data => console.log(data))
-  private originalPuppies: Array<Object> = [];
+  // private originalPuppies: Array<Object> = [];
   puppies: Array<Object> = []
   selected: string = "breed";
   public options: Array<Object> = [{value: "Breed"}, {value: "Size"}];
-  public filter: string = "Terrier";
+  filter: string = "Terrier";
+  filtering: boolean = false;
 
   setPuppies(selected, filter) {
-    this.puppies = [];
-    for(var i = 0; i < this.originalPuppies.length; i++) {
-      if(this.originalPuppies[i][selected] === filter) {
-        this.puppies.push(this.originalPuppies[i]);
-      }
-    }
+    // this.puppies = [];
+    // for(var i = 0; i < this.puppiesService.puppies.length; i++) {
+    //   if(this.puppiesService.puppies[i][selected] === filter) {
+    //     this.puppies.push(this.puppiesService.puppies[i]);
+    //   }
+    // }
     console.log(this.puppies)
     return this.puppies
   }
 
   setFilter(newFilter) {
-    console.log(newFilter)
+    this.filtering = true;
     this.filter = newFilter;
-    this.setPuppies(this.selected, newFilter)
   }
 
   setSelection(newSelection){
@@ -50,7 +51,8 @@ export class PuppiesComponent {
   }
 
   resetData() {
-    this.puppies = this.originalPuppies;
+    this.filtering = false;
+    this.puppies = this.puppiesService.puppies;
   }
 
 }

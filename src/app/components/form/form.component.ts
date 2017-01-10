@@ -15,8 +15,8 @@ export class FilterFormComponent {
   @Output() onFilterChange = new EventEmitter<string>();
   @Output() onReset = new EventEmitter();
 
-  changeSelection(newSelecition: string) {
-    this.onSelectionChanged.emit(newSelecition)
+  changeSelection(newSelection: string) {
+    this.onSelectionChanged.emit(newSelection)
   }
 
   changeFilter(newFilter: NgForm) {

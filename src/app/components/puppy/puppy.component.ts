@@ -1,4 +1,5 @@
 import { Component, Input, Output } from '@angular/core';
+import { PuppiesService } from '../../shared/puppies.service'
 
 @Component({
   selector: 'puppy',
@@ -7,7 +8,12 @@ import { Component, Input, Output } from '@angular/core';
 })
 
 export class PuppyComponent {
-  constructor() {}
+  constructor(private puppiesService: PuppiesService) {}
   @Input() data: Object;
+
+  removePuppy(id) {
+    console.log(id)
+    this.puppiesService.deletePuppy(id)
+  }
 
 }
