@@ -1,16 +1,8 @@
-<div class="puppy">
+<div [hidden]="notVisible" class="puppy">
   <h4>Name: {{ data.name }}</h4>
   <p>Size: {{ data.size }}</p>
   <p>Location: {{ data.location }}</p>
   <p>Breed: {{ data.breed }}</p>
   <img src="{{ data.image }}" />
   <button type="button" id="{{data._id}}" (click)="removePuppy(this.data._id); $event.stopPropagation()">remove</button>
-  <!-- <button class="delete" (click)="delete(hero); $event.stopPropagation()">x</button> -->
 </div>
-
-
-<!-- name: "Jack",
-size: "S",
-location: "Murray",
-breed: "Hound",
-image: "http://loremflickr.com/320/240/dog" -->

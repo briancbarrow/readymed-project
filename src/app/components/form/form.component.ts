@@ -20,7 +20,6 @@ export class FilterFormComponent {
   }
 
   changeFilter(newFilter: NgForm) {
-    console.log(newFilter.value[this.selected])
     this.onFilterChange.emit(newFilter.value[this.selected])
   }
   reset() {

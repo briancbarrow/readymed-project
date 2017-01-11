@@ -1,11 +1,10 @@
 <div class="form-container container">
-  <!-- <h3>Puppy Form</h3> -->
   <form (ngSubmit)="changeFilter(form)" #form="ngForm">
     <h4>Filter Options</h4>
     <input type="radio" name="selection" checked (click)="changeSelection('breed')">
     <label>Breed</label>
     <input type="radio" name="selection" (click)="changeSelection('size')">
-    <label>Size</label>    
+    <label>Size</label>
     <input type="radio" name="selection" (click)="changeSelection('location')">
     <label>Location</label>
 

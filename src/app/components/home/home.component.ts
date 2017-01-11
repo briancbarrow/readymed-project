@@ -11,9 +11,15 @@ import { NgForm } from '@angular/forms';
 export class HomeComponent {
   constructor(private puppiesService: PuppiesService) {}
 
+  hideSubmitSuccess: boolean = true;
+
   createPuppy(newPuppy: NgForm) {
-    console.log(newPuppy.form.value)
-    // this.puppiesService.getPuppies().subscribe(data => console.log(data))
+    this.hideSubmitSuccess = false;
+
+    setTimeout(() => {
+      this.hideSubmitSuccess = true;
+    }, 3000)
+
     this.puppiesService.postPuppy({
       name: newPuppy.form.value.name,
       size: newPuppy.form.value.size,

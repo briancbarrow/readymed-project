@@ -10,7 +10,7 @@ export class PuppiesService {
 
   postPuppy(data) {
     console.log(data);
-    return this.http.post('https://readymed-server.herokuapp.com/post', data)
+    return this.http.post('https://readymed-server.herokuapp.com/puppies', data)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
@@ -29,11 +29,5 @@ export class PuppiesService {
   };
   puppies = [];
   filtering = false;
-  // private currentUserSubject = new BehaviorSubject<string>('Erin');
-  // public currentUser = this.currentUserSubject.asObservable();
-
-  // setUser(name) {
-  //   this.currentUserSubject.next(name);
-  // }
 
 }

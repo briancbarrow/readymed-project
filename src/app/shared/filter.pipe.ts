@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-// import { PuppiesService } from './puppies.service'
 
 @Pipe({ name: 'filterPuppies' })
 export class FilterPipe implements PipeTransform{
